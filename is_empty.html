@@ -30,11 +30,32 @@
 
 				<div class="form-group">
 					<div class="input-group mb-3">
-						<input type="text" class="form-control" aria-describedby="button-addon1">
-						<button class="btn btn-outline-secondary" type="button" id="button-addon1">IsEmpty</button>
+						<input type="text" id="put-variable" class="form-control" aria-describedby="variable-value">
+						<a id="btn-variable" class="btn btn-outline-secondary">IsEmpty</a>
 					</div>
 				</div>
+				<div id="result">The result will appear here</div>
 			</div>
 		</div>
+		<script src="./src/funny.methods.js"></script>
+		<script>
+			var $putVariable,
+				$resultArea;
+
+			// Init
+			window.onload = function() {
+				document.getElementById("btn-variable").addEventListener("click", getIsEmpty);
+				$putVariable = document.getElementById("put-variable");
+				$resultArea = document.getElementById("result");
+			};
+
+			// Call methode isEmpty
+			function getIsEmpty() {
+				funnyMethods.isEmpty($putVariable.value, function(result) {
+					$resultArea.innerHTML = result;
+					console.log(result);
+				});
+			}
+		</script>
 	</body>
 </html>

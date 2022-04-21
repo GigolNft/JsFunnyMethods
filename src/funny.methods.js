@@ -1,6 +1,6 @@
 var funnyMethods = {
 	// Method to test the variable is empty
-	isEmpty: function(variable) {
-
+	isEmpty: function(variable, callback) {
+		callback(variable);
 	}
 };
