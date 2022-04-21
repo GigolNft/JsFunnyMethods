@@ -49,11 +49,17 @@
 				$resultArea = document.getElementById("result");
 			};
 
-			// Call methode isEmpty
+			// Call method isEmpty
 			function getIsEmpty() {
-				funnyMethods.isEmpty($putVariable.value, function(result) {
-					$resultArea.innerHTML = result;
-					console.log(result);
+				funnyMethods.isEmpty($putVariable.value, function(empty) {
+					if (empty) {
+						$resultArea.innerHTML = "Your variable is empty !";
+						console.log("Your variable is empty !");
+						return;
+					}
+
+					$resultArea.innerHTML = "Your variable is not empty !";
+					console.log("Your variable is not empty !");
 				});
 			}
 		</script>
