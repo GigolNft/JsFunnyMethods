@@ -31,35 +31,55 @@
 				<div class="form-group">
 					<div class="input-group mb-3">
 						<input type="text" id="put-variable" class="form-control" aria-describedby="variable-value">
-						<a id="btn-variable" class="btn btn-outline-secondary">IsEmpty</a>
+						<a id="btn-is-empty-variable" class="btn btn-outline-secondary">IsEmpty</a>
+						<a id="btn-is-not-empty-variable" class="btn btn-outline-secondary">IsNotEmpty</a>
 					</div>
 				</div>
-				<div id="result">The result will appear here</div>
+				<div id="result">The result will appear here & in browser console</div>
 			</div>
 		</div>
 		<script src="./src/funny.methods.js"></script>
 		<script>
 			var $putVariable,
-				$resultArea;
+					$resultArea;
 
 			// Init
 			window.onload = function() {
-				document.getElementById("btn-variable").addEventListener("click", getIsEmpty);
+				document.getElementById("btn-is-empty-variable").addEventListener("click", getIsEmpty);
+				document.getElementById("btn-is-not-empty-variable").addEventListener("click", getIsNotEmpty);
 				$putVariable = document.getElementById("put-variable");
 				$resultArea = document.getElementById("result");
 			};
 
 			// Call method isEmpty
-			function getIsEmpty() {
+			function getIsEmpty(e) {
+				e.preventDefault();
+				e.stopPropagation();
+				console.log("isEmpty");
 				funnyMethods.isEmpty($putVariable.value, function(empty) {
 					if (empty) {
 						$resultArea.innerHTML = "Your variable is empty !";
 						console.log("Your variable is empty !");
-						return;
+					} else {
+						$resultArea.innerHTML = "Your variable is not empty !";
+						console.log("Your variable is not empty !");
 					}
+				});
+			}
 
-					$resultArea.innerHTML = "Your variable is not empty !";
-					console.log("Your variable is not empty !");
+			// Call method isNotEmpty
+			function getIsNotEmpty(e) {
+				e.preventDefault();
+				e.stopPropagation();
+				console.log("isNotEmpty");
+				funnyMethods.isNotEmpty($putVariable.value, function(notEmpty) {
+					if (notEmpty) {
+						$resultArea.innerHTML = "Your variable is not empty !";
+					  console.log("Your variable is not empty !");
+					} else {
+						$resultArea.innerHTML = "Your variable is empty !";
+						console.log("Your variable is empty !");
+					}
 				});
 			}
 		</script>
