@@ -3,85 +3,85 @@
     <head>
         <meta charset="UTF-8">
         <title>Js Funny Methods</title>
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     </head>
     <body>
-		<div class="container mt-4">
-			<div class="jumbotron">
-				<h1 class="display-4">JS Funny Methods</h1>
-				<p class="lead">🛠️ Some JavaScript methods. 🤟 Keep calm and code on.</p>
-				<hr class="mt-4">
+    <div class="container mt-4">
+      <div class="jumbotron">
+        <h1 class="display-4">JS Funny Methods</h1>
+        <p class="lead">🛠️ Some JavaScript methods. 🤟 Keep calm and code on.</p>
+        <hr class="mt-4">
 
-				<div class="list-group">
-					<a href="index.html" class="list-group-item list-group-item-action">
-						Home
-					</a>
-					<a href="#" class="list-group-item list-group-item-action active" aria-current="true">
-					  isEmpty / isNotEmpty - Method to test the variable is isEmpty or IsNotEmpty
-					</a>
-					<a href="#" class="list-group-item list-group-item-action">
-						...
-					</a>
-				</div>
+        <div class="list-group">
+          <a href="index.html" class="list-group-item list-group-item-action">
+            Home
+          </a>
+          <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+            isEmpty / isNotEmpty - Method to test the variable is isEmpty or IsNotEmpty
+          </a>
+          <a href="#" class="list-group-item list-group-item-action">
+            ...
+          </a>
+        </div>
 
-				<hr class="mt-4">
+        <hr class="mt-4">
 
-				<h3>isEmpty / isNotEmpty</h3>
+        <h3>isEmpty / isNotEmpty</h3>
 
-				<div class="form-group">
-					<div class="input-group mb-3">
-						<input type="text" id="put-variable" class="form-control" aria-describedby="variable-value">
-						<a id="btn-is-empty-variable" class="btn btn-outline-secondary">IsEmpty</a>
-						<a id="btn-is-not-empty-variable" class="btn btn-outline-secondary">IsNotEmpty</a>
-					</div>
-				</div>
-				<div id="result">The result will appear here & in browser console</div>
-			</div>
-		</div>
-		<script src="./src/funny.methods.js"></script>
-		<script>
-			var $putVariable,
-					$resultArea;
+        <div class="form-group">
+          <div class="input-group mb-3">
+            <input type="text" id="put-variable" class="form-control" aria-describedby="variable-value">
+            <a id="btn-is-empty-variable" class="btn btn-outline-secondary">IsEmpty</a>
+            <a id="btn-is-not-empty-variable" class="btn btn-outline-secondary">IsNotEmpty</a>
+          </div>
+        </div>
+        <div id="result">The result will appear here & in browser console</div>
+      </div>
+    </div>
+    <script src="./src/funny.methods.js"></script>
+    <script>
+      var $putVariable,
+          $resultArea;
 
-			// Init
-			window.onload = function() {
-				document.getElementById("btn-is-empty-variable").addEventListener("click", getIsEmpty);
-				document.getElementById("btn-is-not-empty-variable").addEventListener("click", getIsNotEmpty);
-				$putVariable = document.getElementById("put-variable");
-				$resultArea = document.getElementById("result");
-			};
+      // Init
+      window.onload = function() {
+        document.getElementById("btn-is-empty-variable").addEventListener("click", getIsEmpty);
+        document.getElementById("btn-is-not-empty-variable").addEventListener("click", getIsNotEmpty);
+        $putVariable = document.getElementById("put-variable");
+        $resultArea = document.getElementById("result");
+      };
 
-			// Call method isEmpty
-			function getIsEmpty(e) {
-				e.preventDefault();
-				e.stopPropagation();
-				console.log("isEmpty");
-				funnyMethods.isEmpty($putVariable.value, function(empty) {
-					if (empty) {
-						$resultArea.innerHTML = "Your variable is empty !";
-						console.log("Your variable is empty !");
-					} else {
-						$resultArea.innerHTML = "Your variable is not empty !";
-						console.log("Your variable is not empty !");
-					}
-				});
-			}
+      // Call method isEmpty
+      function getIsEmpty(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log("isEmpty");
+        funnyMethods.isEmpty($putVariable.value, function(empty) {
+          if (empty) {
+            $resultArea.innerHTML = "Your variable is empty !";
+            console.log("Your variable is empty !");
+          } else {
+            $resultArea.innerHTML = "Your variable is not empty !";
+            console.log("Your variable is not empty !");
+          }
+        });
+      }
 
-			// Call method isNotEmpty
-			function getIsNotEmpty(e) {
-				e.preventDefault();
-				e.stopPropagation();
-				console.log("isNotEmpty");
-				funnyMethods.isNotEmpty($putVariable.value, function(notEmpty) {
-					if (notEmpty) {
-						$resultArea.innerHTML = "Your variable is not empty !";
-					  console.log("Your variable is not empty !");
-					} else {
-						$resultArea.innerHTML = "Your variable is empty !";
-						console.log("Your variable is empty !");
-					}
-				});
-			}
-		</script>
-	</body>
+      // Call method isNotEmpty
+      function getIsNotEmpty(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log("isNotEmpty");
+        funnyMethods.isNotEmpty($putVariable.value, function(notEmpty) {
+          if (notEmpty) {
+            $resultArea.innerHTML = "Your variable is not empty !";
+            console.log("Your variable is not empty !");
+          } else {
+            $resultArea.innerHTML = "Your variable is empty !";
+            console.log("Your variable is empty !");
+          }
+        });
+      }
+    </script>
+  </body>
 </html>
